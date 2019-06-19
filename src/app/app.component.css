@@ -1,0 +1,26 @@
+.content-left {
+  width:20%;
+  float: left;
+  min-height: 600px;
+  margin-top: 20px;
+}
+.content-right {
+  width:80%;
+  float: right;
+  background-color: ghostwhite;
+  margin-top: 20px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.page-title {
+  width: 100%;
+  text-align: center;
+  height: 50px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding-top: 12px;
+  margin-top: 10px;
+  font-size: 25px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  cursor: default;
+}

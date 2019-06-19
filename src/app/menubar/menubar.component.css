@@ -1,0 +1,26 @@
+.parent-container {
+  display: block;
+}
+.bar {
+  width: 80%;
+  height: 40px;
+  margin: auto;
+  background-image: linear-gradient(to bottom right, blueviolet, violet);
+  float: right;
+  box-shadow: -1px 3px 11px 0px rgba(0,0,0,0.75);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.logo {
+  width: 20%;
+  display: inline-block;
+}
+.logo-text {
+  text-align: center;
+  margin-top: 5px;
+  cursor: default;
+  color: darkslateblue;
+  font-size: 26px;
+  font-weight: 900;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
