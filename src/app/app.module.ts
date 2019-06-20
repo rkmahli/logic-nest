@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { MenubarComponent } from './menubar/menubar.component';
 import { LogicMobilityFormComponent } from './logic-mobility-form/logic-mobility-form.component';
 import { FormsService } from './services/forms.service';
+import { GridComponent } from './grid/grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenubarComponent,
-    LogicMobilityFormComponent
+    LogicMobilityFormComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,

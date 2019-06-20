@@ -1,0 +1,14 @@
+<div class="grid-body">
+  <table class="grid-table">
+    <thead class="table-header">
+      <th class="header-cell" *ngFor="let columnData of columnsDescriptionArray">{{columnData.label}}</th>
+    </thead>
+    <tbody class="table-body">
+      <tr class="table-row" *ngFor="let rowData of dataArray; let isOdd=odd" [ngClass]="{'table-row-odd': isOdd}">
+        <td class="row-cell" *ngFor="let columnData of columnsDescriptionArray">
+          {{rowData[columnData.key]}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,42 @@
+.grid-body {
+  width: 90%;
+  margin: auto;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  cursor: default;
+  background-color: white;
+  box-shadow: 0px -1px 12px 0px rgba(0,0,0,0.75);
+}
+.grid-table {
+  width: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.table-header {
+  background-color: gainsboro;
+}
+
+.header-cell {
+  height: 50px;
+}
+
+.table-body {
+
+}
+
+.table-row {
+  height: 50px;
+}
+.table-row-odd {
+  background-color: lavender !important;
+}
+.table-row:hover {
+  background-color: skyblue !important;
+}
+
+.row-cell {
+  padding: 10px;
+}
