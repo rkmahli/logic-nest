@@ -1,0 +1,28 @@
+<div class="field">
+  <div class="field-title">
+    Selected Form
+  </div>
+  <div class="field-element">
+  <input type="text" class="field-select-element" value="form-data.json" disabled>
+  </div>
+</div>
+
+<div class="field">
+  <div class="field-title">
+    Select Panel
+  </div>
+  <div class="field-element">
+    <div class="selected-panel-disp" *ngIf="selectedPanelReference && selectedPanelReference.key">{{selectedPanelReference.key}}</div>
+    <div class="selected-panel-disp" *ngIf="!(selectedPanelReference && selectedPanelReference.key)">Select a panel</div>
+    <div *ngFor="let panel of panelReferenceArray" (click)="setPanelReference(panel)" class="panel-list-entry">
+        {{panel.key}}
+    </div>
+  </div>
+</div>
+
+<!-- <div class="field">
+  <input type="button" class="primary-button" value="Submit" (click)="getMobilityEstimation(selectedPanelReference)">
+</div> -->
+<div class="floating-button-round">
+  +
+</div>

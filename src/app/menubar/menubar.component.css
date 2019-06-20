@@ -5,7 +5,7 @@
   width: 80%;
   height: 40px;
   margin: auto;
-  background-image: linear-gradient(to bottom right, blueviolet, violet);
+  background-image: linear-gradient(to bottom right, steelblue, aqua);
   float: right;
   box-shadow: -1px 3px 11px 0px rgba(0,0,0,0.75);
   border-top-left-radius: 5px;
@@ -23,4 +23,48 @@
   font-size: 26px;
   font-weight: 900;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.menu-root-item {
+  height: 100%;
+  color: white;
+  cursor: default;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  padding-top: 10px;
+  text-align: center;
+}
+.menu-root-item:hover {
+  background-color: rgba(0, 151, 19, 0.1);
+}
+
+.menu-group {
+  display: inline-table;
+  min-width: 80px;
+  height: 100%;
+}
+.menu-list {
+  position: absolute;
+  border-radius: 3px;
+  background-color: white;
+  border-radius: 4px;
+  display: none;
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+}
+.menu-sub {
+  min-width: 150px;
+  min-height: 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: slategray;
+  text-align: center;
+  padding-top: 10px;
+  cursor: pointer;
+}
+.menu-sub:hover {
+  background-color: powderblue;
+  border-radius: 4px;
+}
+
+.menu-group:hover .menu-list {
+  display: block;
 }

@@ -10,13 +10,15 @@ import { MenubarComponent } from './menubar/menubar.component';
 import { LogicMobilityFormComponent } from './logic-mobility-form/logic-mobility-form.component';
 import { FormsService } from './services/forms.service';
 import { GridComponent } from './grid/grid.component';
+import { GeneralMobilityFormComponent } from './general-mobility-form/general-mobility-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenubarComponent,
     LogicMobilityFormComponent,
-    GridComponent
+    GridComponent,
+    GeneralMobilityFormComponent
   ],
   imports: [
     BrowserModule,

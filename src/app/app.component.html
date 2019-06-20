@@ -3,8 +3,9 @@
 <div class="content-left">
 </div>
 <div class="content-right">
-  <logic-mobility-form (gridColumnsEvent_1)="setColumnsArray($event)" (gridDataEvent_1)="setDataArray($event)"></logic-mobility-form>
+  <!-- <logic-mobility-form (gridColumnsEvent_1)="setColumnsArray($event)" (gridDataEvent_1)="setDataArray($event)"></logic-mobility-form> -->
+  <app-general-mobility-form></app-general-mobility-form>
 </div>
-<div class="content-right">
-  <app-grid [dataArray]="gridData_1" [columnsDescriptionArray]="gridColumns_1" ></app-grid>
+<div class="content-right" [hidden]="!grid.dataArray || grid.dataArray.length < 1">
+  <app-grid [dataArray]="gridData_1" [columnsDescriptionArray]="gridColumns_1" #grid></app-grid>
 </div>

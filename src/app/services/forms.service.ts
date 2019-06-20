@@ -12,4 +12,8 @@ export class FormsService {
     return this.httpClient.get('/assets/child-form.json')
     .toPromise().then(response => response);
   }
+  public getFormData() {
+    return this.httpClient.get('/assets/parent-form.json')
+    .toPromise().then(response => response);
+  }
 }
