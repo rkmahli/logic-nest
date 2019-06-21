@@ -23,3 +23,7 @@
   font-size: 25px;
   cursor: default;
 }
+
+.page-title-border {
+  border-bottom: 1px solid black;
+}

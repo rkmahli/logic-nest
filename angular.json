@@ -22,7 +22,8 @@
               "src/favicon.ico",
               "src/assets",
               "src/assets/parent-form.json",
-              "src/assets/parent-form.json"
+              "src/assets/parent-form.json",
+              "src/assets/menu.json"
             ],
             "styles": [
               "src/styles.css"

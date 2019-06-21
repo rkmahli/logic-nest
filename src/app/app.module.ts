@@ -11,6 +11,7 @@ import { LogicMobilityFormComponent } from './logic-mobility-form/logic-mobility
 import { FormsService } from './services/forms.service';
 import { GridComponent } from './grid/grid.component';
 import { GeneralMobilityFormComponent } from './general-mobility-form/general-mobility-form.component';
+import { MenuService } from 'src/app/services/menu.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { GeneralMobilityFormComponent } from './general-mobility-form/general-mo
     FormsModule,
     HttpClientModule
   ],
-  providers: [FormsService],
+  providers: [FormsService, MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

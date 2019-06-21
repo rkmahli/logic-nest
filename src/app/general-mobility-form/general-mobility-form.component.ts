@@ -10,6 +10,7 @@ export class GeneralMobilityFormComponent implements OnInit {
   private formData: any;
   public panelReferenceArray = [];
   public selectedPanelReference: any;
+  private expandPanelList = false;
   constructor(private formsService: FormsService) {}
   ngOnInit() {
     this.formsService.getFormData().then(data => {
@@ -52,7 +53,7 @@ export class GeneralMobilityFormComponent implements OnInit {
     }
   }
   public setPanelReference(panelReference: any) {
-    console.log(panelReference);
     this.selectedPanelReference = panelReference;
+    this.expandPanelList = false;
   }
 }

@@ -12,17 +12,12 @@
     Select Panel
   </div>
   <div class="field-element">
-    <div class="selected-panel-disp" *ngIf="selectedPanelReference && selectedPanelReference.key">{{selectedPanelReference.key}}</div>
-    <div class="selected-panel-disp" *ngIf="!(selectedPanelReference && selectedPanelReference.key)">Select a panel</div>
-    <div *ngFor="let panel of panelReferenceArray" (click)="setPanelReference(panel)" class="panel-list-entry">
+    <div class="selected-panel-disp" *ngIf="selectedPanelReference && selectedPanelReference.key" (click)="expandPanelList = !expandPanelList" [ngClass]="{'selected-panel-disp-inset':expandPanelList}">{{selectedPanelReference.key}}</div>
+    <div class="selected-panel-disp" *ngIf="!(selectedPanelReference && selectedPanelReference.key)" (click)="expandPanelList = !expandPanelList" [ngClass]="{'selected-panel-disp-inset':expandPanelList}">Select a panel</div>
+    <div *ngFor="let panel of panelReferenceArray" (click)="setPanelReference(panel)" class="panel-list-entry" [hidden]="!expandPanelList">
         {{panel.key}}
     </div>
   </div>
 </div>
 
-<!-- <div class="field">
-  <input type="button" class="primary-button" value="Submit" (click)="getMobilityEstimation(selectedPanelReference)">
-</div> -->
-<div class="floating-button-round">
-  +
-</div>
+<div class="floating-button-round">></div>

@@ -5,7 +5,7 @@
   width: 80%;
   height: 40px;
   margin: auto;
-  background-image: linear-gradient(to bottom right, steelblue, aqua);
+  background-image: linear-gradient(black, darkslategray, black);
   float: right;
   box-shadow: -1px 3px 11px 0px rgba(0,0,0,0.75);
   border-top-left-radius: 5px;
@@ -52,16 +52,16 @@
   box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
 }
 .menu-sub {
-  min-width: 150px;
+  min-width: 175px;
   min-height: 30px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: slategray;
+  color: darkslategray;
   text-align: center;
   padding-top: 10px;
   cursor: pointer;
 }
 .menu-sub:hover {
-  background-color: powderblue;
+  background-image: linear-gradient(lightskyblue, dodgerblue, lightskyblue);
   border-radius: 4px;
 }
 
