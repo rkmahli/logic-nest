@@ -1,9 +1,9 @@
 <div class="field">
   <div class="field-title">
-    Selected Form
+    Select File
   </div>
   <div class="field-element">
-  <input type="text" class="field-select-element" value="form-data.json" disabled>
+  <input type="file" class="field-select-element" (change)="fileSelectEvent($event.target)">
   </div>
 </div>
 

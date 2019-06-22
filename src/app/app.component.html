@@ -4,7 +4,7 @@
 </div>
 <div class="content-right">
   <!-- <logic-mobility-form (gridColumnsEvent_1)="setColumnsArray($event)" (gridDataEvent_1)="setDataArray($event)"></logic-mobility-form> -->
-  <app-general-mobility-form></app-general-mobility-form>
+  <app-general-mobility-form (gridColumnsEvent_1)="setColumnsArray($event)" (gridDataEvent_1)="setDataArray($event)"></app-general-mobility-form>
 </div>
 <div class="content-right" [hidden]="!grid.dataArray || grid.dataArray.length < 1">
   <app-grid [dataArray]="gridData_1" [columnsDescriptionArray]="gridColumns_1" #grid></app-grid>
