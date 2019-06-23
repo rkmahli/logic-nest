@@ -54,7 +54,7 @@ export class LogicMobilityFormComponent implements OnInit {
     }
   }
 
-  private getLogicBreakdown(componentIndex) {
+  public getLogicBreakdown(componentIndex) {
     this.allowedLogicArray = [];
     this.barredLogicArray = [];
     const componentsReference = this.parentForm.components[componentIndex].components;
