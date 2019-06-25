@@ -13,6 +13,8 @@ export class GeneralMobilityFormComponent implements OnInit {
   private allowedLogicArray: any;
   private barredLogicArray: any;
   private gridColumnsArray: any;
+  public totalLogicCount = 0;
+  public movableLogicCount = 0;
   @Output() gridColumnsEvent_1 : EventEmitter<any> = new EventEmitter<any>();
   @Output() gridDataEvent_1 : EventEmitter<any> = new EventEmitter<any>();
   constructor() {}
@@ -41,8 +43,10 @@ export class GeneralMobilityFormComponent implements OnInit {
     const panelElements = new Object();
     panelElements[panelReference.key] = true;
     this.getPanelElements(panelReference, panelElements);
-    const logicComponentsArray = [];
+    let logicComponentsArray = [];
     this.getLogicComponentReferenceArray(panelReference, logicComponentsArray);
+    logicComponentsArray = Array.from(new Set(logicComponentsArray));
+    this.totalLogicCount = logicComponentsArray.length;
     this.getLogicBreakdown(panelElements, logicComponentsArray, this.allowedLogicArray, this.barredLogicArray);
   }
 
@@ -102,10 +106,12 @@ export class GeneralMobilityFormComponent implements OnInit {
 
     allowedLogicArray = [];
     barredLogicArray = [];
+    let total = 0;
     for (const component of logicComponentsArray) {
       let flag = true; // false --> all properties inside child form
-      if (String(component.type) === 'decision') {
 
+      if (String(component.type) === 'decision') {
+        total++;
         flag = false;
         for (const inputProperty of component.linked.inputs) {
           if (inputProperty) {
@@ -115,7 +121,6 @@ export class GeneralMobilityFormComponent implements OnInit {
             }
           }
         }
-
         for (const outputProperty of component.linked.outputs) {
           if (outputProperty) {
             if (!panelElementsObject[outputProperty]) {
@@ -124,6 +129,7 @@ export class GeneralMobilityFormComponent implements OnInit {
           }
         }
       } else if (String(component.type) === 'integrator') {
+        total++;
         flag = false;
         for (const inputProperty of component.linked.inputs) {
           if (inputProperty) {
@@ -132,7 +138,6 @@ export class GeneralMobilityFormComponent implements OnInit {
             }
           }
         }
-
         for (const outputProperty of component.linked.outputs) {
           if (outputProperty) {
             if (!panelElementsObject[outputProperty]) {
@@ -142,6 +147,7 @@ export class GeneralMobilityFormComponent implements OnInit {
         }
 
       } else if (String(component.type) === 'initializer') {
+        total++;
         flag = false;
         for (const inputProperty of component.linked.inputs) {
           if (inputProperty) {
@@ -150,7 +156,6 @@ export class GeneralMobilityFormComponent implements OnInit {
             }
           }
         }
-
         for (const outputProperty of component.linked.outputs) {
           if (outputProperty) {
             if (!panelElementsObject[outputProperty]) {
@@ -160,6 +165,7 @@ export class GeneralMobilityFormComponent implements OnInit {
         }
 
       } else if (String(component.type) === 'transformer') {
+        total++;
         flag = false;
         for (const inputProperty of component.linked.inputs) {
           if (inputProperty) {
@@ -168,7 +174,6 @@ export class GeneralMobilityFormComponent implements OnInit {
             }
           }
         }
-
         for (const outputProperty of component.linked.outputs) {
           if (outputProperty) {
             if (!panelElementsObject[outputProperty]) {
@@ -176,7 +181,6 @@ export class GeneralMobilityFormComponent implements OnInit {
             }
           }
         }
-
       }
       const logicItem = new Object();
       logicItem['key'] = component.key;
@@ -189,6 +193,7 @@ export class GeneralMobilityFormComponent implements OnInit {
     }
     this.gridColumnsEvent_1.emit(this.gridColumnsArray);
     this.gridDataEvent_1.emit(allowedLogicArray);
+    this.movableLogicCount = allowedLogicArray.length;
   }
   private getGridColumnsArray(): any {
     this.gridColumnsArray = [];
@@ -208,7 +213,6 @@ export class GeneralMobilityFormComponent implements OnInit {
     fileReader.onload = () => {
       this.formData = JSON.parse(fileReader.result.toString());
       this.getPanelReferences(this.formData);
-      console.log(this.formData);
     };
     fileReader.onerror = () => alert('Error reading file');
   }

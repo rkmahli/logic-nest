@@ -12,7 +12,7 @@
     Select Panel
   </div>
   <div class="field-element">
-    <div class="selected-panel-disp" *ngIf="selectedPanelReference && selectedPanelReference.key" (click)="expandPanelList = !expandPanelList" [ngClass]="{'selected-panel-disp-inset':expandPanelList}">{{selectedPanelReference.key}}</div>
+    <div class="selected-panel-disp" *ngIf="selectedPanelReference && selectedPanelReference.key" (click)="expandPanelList = !expandPanelList" [ngClass]="{'selected-panel-disp-inset':expandPanelList}">{{selectedPanelReference.key}} {{movableLogicCount}} / {{totalLogicCount}}</div>
     <div class="selected-panel-disp" *ngIf="!(selectedPanelReference && selectedPanelReference.key)" (click)="expandPanelList = !expandPanelList" [ngClass]="{'selected-panel-disp-inset':expandPanelList}">Select a panel</div>
     <div *ngFor="let panel of panelReferenceArray" (click)="setPanelReference(panel)" class="panel-list-entry" [hidden]="!expandPanelList">
         {{panel.key}}
