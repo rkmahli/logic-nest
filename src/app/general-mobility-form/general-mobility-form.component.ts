@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormsService } from '../services/forms.service';
 
 @Component({
   selector: 'app-general-mobility-form',
@@ -16,7 +15,7 @@ export class GeneralMobilityFormComponent implements OnInit {
   private gridColumnsArray: any;
   @Output() gridColumnsEvent_1 : EventEmitter<any> = new EventEmitter<any>();
   @Output() gridDataEvent_1 : EventEmitter<any> = new EventEmitter<any>();
-  constructor(private formsService: FormsService) {}
+  constructor() {}
   ngOnInit() {
     this.getGridColumnsArray();
   }
