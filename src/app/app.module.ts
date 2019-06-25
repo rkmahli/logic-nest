@@ -7,8 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { MenubarComponent } from './menubar/menubar.component';
-import { LogicMobilityFormComponent } from './logic-mobility-form/logic-mobility-form.component';
-import { FormsService } from './services/forms.service';
 import { GridComponent } from './grid/grid.component';
 import { GeneralMobilityFormComponent } from './general-mobility-form/general-mobility-form.component';
 import { MenuService } from 'src/app/services/menu.service';
@@ -17,7 +15,6 @@ import { MenuService } from 'src/app/services/menu.service';
   declarations: [
     AppComponent,
     MenubarComponent,
-    LogicMobilityFormComponent,
     GridComponent,
     GeneralMobilityFormComponent
   ],
@@ -27,7 +24,7 @@ import { MenuService } from 'src/app/services/menu.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [FormsService, MenuService],
+  providers: [ MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
