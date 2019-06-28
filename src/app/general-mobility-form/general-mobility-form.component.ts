@@ -15,9 +15,9 @@ export class GeneralMobilityFormComponent implements OnInit {
   private gridColumnsArray: any;
   public totalLogicCount = 0;
   public movableLogicCount = 0;
-  @Output() gridColumnsEvent_1 : EventEmitter<any> = new EventEmitter<any>();
-  @Output() gridDataEvent_1 : EventEmitter<any> = new EventEmitter<any>();
-  constructor() {}
+  @Output() gridColumnsEvent_1: EventEmitter<any> = new EventEmitter<any>();
+  @Output() gridDataEvent_1: EventEmitter<any> = new EventEmitter<any>();
+  constructor() { }
   ngOnInit() {
     this.getGridColumnsArray();
   }
@@ -75,12 +75,12 @@ export class GeneralMobilityFormComponent implements OnInit {
   }
 
   private getLogicComponentReferenceArray(componentReference: any, logicComponentsArray: any) {
-    if (componentReference.type ==='transformer' ||
-        componentReference.type === 'decision'||
-        componentReference.type === 'integrator' ||
-        componentReference.type === 'initializer') {
-          logicComponentsArray.push(componentReference);
-        }
+    if (componentReference.type === 'transformer' ||
+      componentReference.type === 'decision' ||
+      componentReference.type === 'integrator' ||
+      componentReference.type === 'initializer') {
+      logicComponentsArray.push(componentReference);
+    }
     if (componentReference.components && componentReference.components.length && componentReference.components.length > 0) {
       for (const component of componentReference.components) {
         this.getLogicComponentReferenceArray(component, logicComponentsArray);
@@ -195,6 +195,30 @@ export class GeneralMobilityFormComponent implements OnInit {
     this.gridDataEvent_1.emit(allowedLogicArray);
     this.movableLogicCount = allowedLogicArray.length;
   }
+
+  private getFieldTypes(componentReference, typeSet: Set<string>) {
+    typeSet.add(componentReference.type);
+    if (componentReference.components && componentReference.components.length && componentReference.components.length > 0) {
+      for (const component of componentReference.components) {
+        this.getLogicComponentReferenceArray(component, typeSet);
+      }
+    }
+    if (componentReference.columns && componentReference.columns.length && componentReference.columns.length > 0) {
+      for (const column of componentReference.columns) {
+        this.getLogicComponentReferenceArray(column, typeSet);
+      }
+    }
+
+    if (componentReference.columns) {
+      for (const column of componentReference.columns) {
+        const components = column.components;
+        for (const component of components) {
+          this.getLogicComponentReferenceArray(component, typeSet);
+        }
+      }
+    }
+  }
+
   private getGridColumnsArray(): any {
     this.gridColumnsArray = [];
     const col_1 = new Object();
@@ -212,6 +236,7 @@ export class GeneralMobilityFormComponent implements OnInit {
     fileReader.readAsText(file, '0UTF-8');
     fileReader.onload = () => {
       this.formData = JSON.parse(fileReader.result.toString());
+      console.log(this.formData);
       this.getPanelReferences(this.formData);
     };
     fileReader.onerror = () => alert('Error reading file');
